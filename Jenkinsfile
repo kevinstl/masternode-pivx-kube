@@ -102,7 +102,7 @@ pipeline {
       steps {
 
         container('go') {
-          sh "./mvnw clean package -Pprod -Pswagger -DnewVersion=\$(cat VERSION) -DskipTests"
+//          sh "./mvnw clean package -Pprod -Pswagger -DnewVersion=\$(cat VERSION) -DskipTests"
 
           sh "make build"
 

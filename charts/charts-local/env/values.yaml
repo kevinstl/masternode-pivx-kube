@@ -1,0 +1,40 @@
+PipelineSecrets: {}
+cleanup:
+  Annotations:
+    helm.sh/hook: pre-delete
+    helm.sh/hook-delete-policy: hook-succeeded
+  Args:
+  - --cleanup
+controllerbuild: {}
+expose:
+  Annotations:
+    helm.sh/hook: post-install,post-upgrade
+    helm.sh/hook-delete-policy: hook-succeeded
+  Args:
+  - --v
+  - 4
+  config:
+    domain: 35.225.224.89.nip.io
+    exposer: Ingress
+    http: "true"
+jenkins:
+  Servers:
+    Global:
+      EnvVars:
+        TILLER_NAMESPACE: kube-system
+prow: {}
+
+project:
+  namespace: jx-staging
+
+db:
+  mongo:
+    host: ds133632.mlab.com
+    port: 33632
+masternode-pivx-kube:
+  service:
+    type: NodePort
+    nodePort: 30950
+
+
+

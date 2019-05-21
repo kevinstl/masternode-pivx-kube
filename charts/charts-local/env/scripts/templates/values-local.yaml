@@ -1,0 +1,7 @@
+masternode-pivx-kube:
+  service:
+    type: NodePort
+    nodePort: 30950
+
+
+

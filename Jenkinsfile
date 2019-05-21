@@ -107,7 +107,6 @@ pipeline {
           sh "make build"
 
           sh "ls -al"
-          sh "ls -al ./target"
         }
       }
     }

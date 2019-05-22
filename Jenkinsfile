@@ -131,9 +131,9 @@ pipeline {
       when {
         anyOf { branch 'master'; branch 'feature-*' }
       }
-      environment {
-//        DEPLOY_NAMESPACE = "jx-local"
-      }
+//      environment {
+////        DEPLOY_NAMESPACE = "jx-local"
+//      }
       steps {
         script {
           if (kubeEnv?.trim() == 'local') {

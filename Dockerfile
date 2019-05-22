@@ -56,6 +56,12 @@ RUN set -x && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 VOLUME ["${HOME}"]
 WORKDIR ${HOME}
 ADD ./bin /usr/local/bin
+
+
+RUN echo $PATH
+RUN ls -al /usr/local/bin
+
+
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["start-unprivileged.sh"]
 

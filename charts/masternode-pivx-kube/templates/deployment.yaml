@@ -57,9 +57,14 @@ spec:
 #          successThreshold: {{ .Values.readinessProbe.successThreshold }}
 #          timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
         resources:
+{{ toYaml .Values.resources | indent 10 }}
+
+
         volumeMounts:
           - name: data
             mountPath: /pivx
+
+
 
       volumes:
         - name: data
@@ -70,6 +75,3 @@ spec:
           emptyDir: {}
         {{- end -}}
 
-{{ toYaml .Values.resources | indent 12 }}
-      terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
-{{- end }}

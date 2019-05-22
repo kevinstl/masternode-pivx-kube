@@ -70,7 +70,7 @@ spec:
         - name: data
         {{- if .Values.persistence.enabled }}
           persistentVolumeClaim:
-            claimName: bitcoind-kube-pvc{{ .Values.project.networkSuffix }}
+            claimName: masternode-pivx-kube-pvc{{ .Values.project.networkSuffix }}
         {{- else }}
           emptyDir: {}
         {{- end -}}

@@ -19,6 +19,17 @@ spec:
 {{ toYaml .Values.podAnnotations | indent 8 }}
 {{- end }}
     spec:
+
+{{- if .Values.nodeSelector.enabled }}
+      nodeSelector:
+        pool: bitcoind-4vcpu-1
+      tolerations:
+        - key: bitcoind-4vcpu-1
+          operator: Equal
+          value: "true"
+          effect: NoSchedule
+{{- end }}
+
       containers:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -46,6 +57,19 @@ spec:
 #          successThreshold: {{ .Values.readinessProbe.successThreshold }}
 #          timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
         resources:
+        volumeMounts:
+          - name: data
+            mountPath: /pivx
+
+      volumes:
+        - name: data
+        {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: bitcoind-kube-pvc{{ .Values.project.networkSuffix }}
+        {{- else }}
+          emptyDir: {}
+        {{- end -}}
+
 {{ toYaml .Values.resources | indent 12 }}
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
 {{- end }}

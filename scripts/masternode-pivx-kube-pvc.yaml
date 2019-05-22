@@ -1,0 +1,14 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: masternode-pivx-kube-pvcX_NETWORK_SUFFIX_X
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+#      storage: 5Gi
+      storage: X_STORAGE_X
+  storageClassName: standard
+  volumeName: masternode-pivx-kube-pvX_NETWORK_SUFFIX_X

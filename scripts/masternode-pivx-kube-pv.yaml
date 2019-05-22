@@ -1,0 +1,18 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: masternode-pivx-kube-pvX_NETWORK_SUFFIX_X
+  labels:
+    type: local
+spec:
+  storageClassName: standard
+  capacity:
+#    storage: 5Gi
+    storage: X_STORAGE_X
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: "/mnt/vda1/pivx"
+    type: DirectoryOrCreate

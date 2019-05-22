@@ -10,6 +10,8 @@ pipeline {
     NEW_VERSION_LOCAL = 'true'
     GITHUB_ADDRESS    = 'https://github.com/kevinstl'
 
+    DEPLOY_NAMESPACE = "masternode-pivx-kube"
+
   }
   stages {
 
@@ -130,7 +132,7 @@ pipeline {
         anyOf { branch 'master'; branch 'feature-*' }
       }
       environment {
-        DEPLOY_NAMESPACE = "jx-local"
+//        DEPLOY_NAMESPACE = "jx-local"
       }
       steps {
         script {

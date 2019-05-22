@@ -55,7 +55,7 @@ RUN set -x && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 VOLUME ["${HOME}"]
 WORKDIR ${HOME}
-ADD ./bin /usr/local/bin
+ADD ./docker/bin /usr/local/bin
 
 
 RUN echo $PATH

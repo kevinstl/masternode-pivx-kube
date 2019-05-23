@@ -56,4 +56,4 @@ cat ${pvYaml} | sed "s/\X_NETWORK_SUFFIX_X/${networkSuffix}/" | sed "s/\X_STORAG
 
 
 #./create-pv.sh "" masternode-pivx-kube "" "" 5Gi
-#./create-pv.sh "" masternode-pivx-kube "" "" 5Gi gke
+#./create-pv.sh "" masternode-pivx-kube "" "" 25Gi gke

@@ -41,3 +41,4 @@ fi
 #./delete-pv.sh "" masternode-pivx-kube-mainnet -mainnet mainnet gke
 
 #./delete-pv.sh "" masternode-pivx-kube "" ""
+#./delete-pv.sh "" masternode-pivx-kube "" "" gke

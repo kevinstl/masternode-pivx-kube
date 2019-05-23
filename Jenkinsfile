@@ -228,7 +228,7 @@ def promote( env ) {
 
       // promote through all 'Auto' promotion Environments
 //            sh "jx promote -b --all-auto --timeout 1h --version \$(cat ../../VERSION)"
-      sh "jx promote -b --env ${env} --namespace masternode-pivx-kube --timeout 1h --version \$(cat ../../VERSION)"
+      sh "jx promote -b --env masternode-pivx-kube --timeout 1h --version \$(cat ../../VERSION)"
     }
   }
 }

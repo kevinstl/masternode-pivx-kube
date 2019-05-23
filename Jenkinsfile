@@ -212,7 +212,7 @@ def deployLocal() {
         sh 'cat ./requirements.yaml'
         sh 'jx step helm build'
 //                sh 'jx step helm apply --wait=false'
-        sh 'jx step helm apply -n masternode-pivx-kube --wait=false'
+        sh 'jx step helm apply --namespace masternode-pivx-kube --wait=false'
       }
     }
   }
@@ -228,7 +228,7 @@ def promote( env ) {
 
       // promote through all 'Auto' promotion Environments
 //            sh "jx promote -b --all-auto --timeout 1h --version \$(cat ../../VERSION)"
-      sh "jx promote -b --env ${env} --timeout 1h --version \$(cat ../../VERSION)"
+      sh "jx promote -b --env ${env} --namespace masternode-pivx-kube --timeout 1h --version \$(cat ../../VERSION)"
     }
   }
 }

@@ -36,9 +36,26 @@ spec:
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
 {{- range $pkey, $pval := .Values.env }}
-        - name: {{ $pkey }}
-          value: {{ $pval }}
+          - name: {{ $pkey }}
+            value: {{ $pval }}
 {{- end }}
+
+          - name: RPCUSER
+            valueFrom:
+              secretKeyRef:
+                name: masternode-pivx-kube-secrets
+                key: rpcuser
+          - name: RPCPASS
+            valueFrom:
+              secretKeyRef:
+                name: masternode-pivx-kube-secrets
+                key: rpcpass
+          - name: MASTERNODEPRIVKEY
+            valueFrom:
+              secretKeyRef:
+                name: masternode-pivx-kube-secrets
+                key: masternodeprivkey
+
         ports:
         - containerPort: {{ .Values.service.internalPort }}
 #        livenessProbe:

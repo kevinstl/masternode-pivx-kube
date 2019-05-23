@@ -29,6 +29,9 @@ fi
 cat $FILE
 ls -lah $DIR/
 
+echo $DIR
+df -h
+
 echo "Initialization completed successfully"
 
 exec $EXECUTABLE

@@ -14,5 +14,5 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: "/mnt/vda1/pivx"
+    path: "/mnt/sda1/pivx"
     type: DirectoryOrCreate

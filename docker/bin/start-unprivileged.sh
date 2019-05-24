@@ -47,6 +47,12 @@ df -h
 
 echo "Initialization completed successfully"
 
+echo "db.log before startup"
+cat /pivx/.pivx/db.log
+
 exec $EXECUTABLE
+
+echo "db.log after crash"
+cat /pivx/.pivx/db.log
 
 #while true; do sleep 10000; done

@@ -22,13 +22,20 @@ rpcallowip=192.168.0.0/16
 server=1
 rpcuser=${RPCUSER:-pivxrpc}
 rpcpassword=${RPCPASS:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
-daemon=1
 logtimestamps=1
 maxconnections=256
 masternode=1
 externalip=34.66.53.90
-masternodeprivkey=${MASTERNODEPRIVKEY}
+masternodeprivkey=${MASTERNODEPRIVKEY:-fakekey}
 EOF
+
+
+#daemon=1
+#logtimestamps=1
+#maxconnections=256
+#masternode=1
+#externalip=34.66.53.90
+#masternodeprivkey=${MASTERNODEPRIVKEY:-fakekey}
 
 fi
 
@@ -41,3 +48,5 @@ df -h
 echo "Initialization completed successfully"
 
 exec $EXECUTABLE
+
+#while true; do sleep 10000; done

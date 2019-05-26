@@ -15,22 +15,26 @@ if [ ! -e "$FILE" ]; then
     # Seed a random password for JSON RPC server
     cat <<EOF > $FILE
 printtoconsole=${PRINTTOCONSOLE:-1}
-rpcbind=127.0.0.1
-rpcallowip=10.0.0.0/8
-rpcallowip=172.16.0.0/12
-rpcallowip=192.168.0.0/16
-server=1
 rpcuser=${RPCUSER:-pivxrpc}
 rpcpassword=${RPCPASS:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
+rpcallowip=127.0.0.1
+listen=1
+server=1
 logtimestamps=1
 maxconnections=256
 masternode=1
 externalip=34.66.53.90
+bind=34.66.53.90
+masternodeaddr=34.66.53.90
 masternodeprivkey=${MASTERNODEPRIVKEY:-fakekey}
 EOF
 
-
 #daemon=1
+
+#rpcallowip=10.0.0.0/8
+#rpcallowip=172.16.0.0/12
+#rpcallowip=192.168.0.0/16
+#rpcbind=127.0.0.1
 #logtimestamps=1
 #maxconnections=256
 #masternode=1

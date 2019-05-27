@@ -7,13 +7,15 @@ FILENAME=pivx.conf
 FILE=$DIR/$FILENAME
 
 # create directory and config file if it does not exist yet
-if [ ! -e "$FILE" ]; then
-    mkdir -p $DIR
 
-    echo "Creating $FILENAME"
+#Temporarily recreating file every time.
+#if [ ! -e "$FILE" ]; then
+mkdir -p $DIR
 
-    # Seed a random password for JSON RPC server
-    cat <<EOF > $FILE
+echo "Creating $FILENAME"
+
+# Seed a random password for JSON RPC server
+cat <<EOF > $FILE
 printtoconsole=${PRINTTOCONSOLE:-1}
 rpcuser=${RPCUSER:-pivxrpc}
 rpcpassword=${RPCPASS:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
@@ -27,6 +29,7 @@ externalip=34.66.53.90
 bind=34.66.53.90
 masternodeaddr=34.66.53.90
 masternodeprivkey=${MASTERNODEPRIVKEY:-fakekey}
+dbcache=1024
 EOF
 
 #daemon=1
@@ -41,7 +44,7 @@ EOF
 #externalip=34.66.53.90
 #masternodeprivkey=${MASTERNODEPRIVKEY:-fakekey}
 
-fi
+#fi
 
 cat $FILE
 ls -lah $DIR/

@@ -26,12 +26,12 @@ logtimestamps=1
 maxconnections=256
 masternode=1
 externalip=34.66.53.90
-bind=34.66.53.90
 masternodeaddr=34.66.53.90
 masternodeprivkey=${MASTERNODEPRIVKEY:-fakekey}
 dbcache=1024
 EOF
 
+#bind=34.66.53.90
 #daemon=1
 
 #rpcallowip=10.0.0.0/8
